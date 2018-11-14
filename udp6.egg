@@ -4,7 +4,7 @@
 (dependencies socket)
 (license "BSD")
 (category net)
-(version "0.1.0")
+(version "0.2.0")
 (components (extension udp6
                        (csc-options "-O2" "-d1")
                        (source "udp6-mod.scm")))
