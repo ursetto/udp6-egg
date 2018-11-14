@@ -2,7 +2,12 @@
 ;; Listens on port 1313 on both IPv4 and IPv6 (typically)
 ;; for any UDP datagram, and responds with the current time.
 
-(use udp6 posix)
+(require-extension udp6)
+(cond-expand
+  (chicken-5 
+    (import (chicken format) (chicken time posix)))
+  (else (use posix)))
+
 (define s (udp-open-socket 'inet6))
 (udp-bind! s "::" 1313)
 (let loop ()

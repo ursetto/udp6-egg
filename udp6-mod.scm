@@ -7,8 +7,11 @@
    ;; udp-set-multicast-interface udp-join-multicast-group
    )
 
-(import scheme (only chicken use include))
-(use socket)
+(import scheme)
+(cond-expand
+  (chicken-4
+    (import (only chicken include)))
+  (else (import (chicken base))))
 (include "udp6.scm")
 
 )

@@ -1,4 +1,8 @@
-(use udp6)
+(require-extension udp6)
+(cond-expand
+  (chicken-5 (import (chicken format)))
+  (else))
+
 (define s (udp-open-socket 'inet6))
 (udp-bind! s "::" 1337)
 (let loop ()

@@ -1,4 +1,10 @@
-(use udp6)
+(require-extension udp6)
+(cond-expand
+  (chicken-5 (import (chicken format)))
+  (else))
+
+
+
 (define port 1313)
 (define family 'inet6)
 (define host "localhost")

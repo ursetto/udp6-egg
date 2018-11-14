@@ -45,8 +45,13 @@
 ; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ; ----------------------------TERMS OF USE--------------------------------
 
-(import scheme chicken extras foreign srfi-1 srfi-18)
-
+(import scheme)
+(cond-expand
+ (chicken-4
+  (import chicken)
+  (require-extension socket))
+ (else
+  (import (chicken base) socket)))
 
 ;;; error-signaling calls
 (define udp-error
