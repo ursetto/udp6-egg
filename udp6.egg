@@ -1,0 +1,11 @@
+(
+(synopsis "Interface to UDP over IPv4 and IPv6")
+(author "Jim Ursetto")
+(dependencies socket)
+(license "BSD")
+(category net)
+(version "0.1.0")
+(components (extension udp6
+                       (csc-options "-O2" "-d1")
+                       (source "udp6-mod.scm")))
+)
